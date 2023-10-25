@@ -1,0 +1,13 @@
+.banner {
+  /* background-color:#005072;  */
+  background-color:#00BCEB; 
+  background-color:#fff; 
+  padding: 20px;
+  text-align: left;
+  color: #00BCEB; 
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 2em;
+}
