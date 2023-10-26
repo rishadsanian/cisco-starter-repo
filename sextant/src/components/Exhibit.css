@@ -68,6 +68,13 @@ header {
   animation: glow-red 2s infinite alternate;
 }
 
+.status-symbol-off {
+  width: 20px;
+  height: 20px;
+  background: rgba(128, 128, 128, 0.157); /* Gray background for the muted status symbol */
+  animation: glow-muted 2s infinite alternate;
+}
+
 @keyframes glow-green {
   from {
     box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
@@ -83,6 +90,15 @@ header {
   }
   to {
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  }
+}
+
+@keyframes glow-muted {
+  from {
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.5); /* A lighter gray for the shadow */
+  }
+  to {
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5); /* A slightly darker gray for the shadow */
   }
 }
 
