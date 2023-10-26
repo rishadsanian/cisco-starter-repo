@@ -14,17 +14,18 @@ function Exhibit({ widget }) {
   }, [widget.data]);
 
   return (
-    <div className="widget">
-      <header>
-        <div className={`status-symbol ${statusSymbolClass}`}></div>
-        <h2 className="heading">{widget.heading}</h2>
-      </header>
-      {widget.data !== null && widget.data !== undefined ? (
-        <p className="value">{widget.data}</p>
-      ) : (
-        <div className="status-symbol"></div>
-      )}
-    </div>
+    <div className="widget" style={{ width: widget.width }}>
+    <header>
+      <div className={`status-symbol ${statusSymbolClass}`}></div>
+      <h2 className="heading">{widget.heading}</h2>
+    </header>
+    {widget.data !== null && widget.data !== undefined ? (
+      <p className="value">{widget.data}</p>
+    ) : (
+      <div className="status-symbol"></div>
+    )}
+  </div>
+  
   );
 }
 

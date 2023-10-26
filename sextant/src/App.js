@@ -11,9 +11,9 @@ function App() {
   const { ipv4, ipv6 } = GetIP();
   const { latency } = PacketLatency();
 
-  const widget1 = { heading: "Public IPV4 Address ", data: ipv4 };
-  const widget2 = { heading: "Public IPV6 Address", data: ipv6 };
-  const widget3 = { heading: "Latency (ms)", data: latency };
+  const widget1 = { heading: "Public IPV4 Address ", data: ipv4, width:"60vh" };
+  const widget2 = { heading: "Public IPV6 Address", data: ipv6, width:"60vh" };
+  const widget3 = { heading: "Latency (ms)", data: latency, width:"20%" };
   const widget4 = { heading: "Widget4", data: "Data4" };
 
   return (
