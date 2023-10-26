@@ -4,8 +4,8 @@ import './Exhibit.css';
 function Exhibit({ widget }) {
   return (
     <div className="widget">
-      <h2>{widget.heading}</h2>
-      <p>{widget.data}</p>
+      <h2 className="heading">{widget.heading}</h2>
+      <p className="value">{widget.data}</p>
     </div> 
   );
 }

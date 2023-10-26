@@ -13,7 +13,6 @@ async function getIP(url) {
 }
 
 // Function to get both IPv4 and IPv6 addresses
-
 function GetIP() {
   const [ipv4, setIPv4] = useState(null);
   const [ipv6, setIPv6] = useState(null);
@@ -24,7 +23,6 @@ function GetIP() {
       const ipv6Address = await getIP("https://api64.ipify.org?format=json");
       setIPv4(ipv4Address);
       setIPv6(ipv6Address);
-      console.log(ipv4Address, ipv6Address);
     }
     fetchData();
   }, []);
