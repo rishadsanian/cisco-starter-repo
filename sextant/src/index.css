@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #005072, #333); /* Gradient background */
+  font-family: 'Courier New', monospace; /* Use a monospaced font for a techy feel */
+
+  background-image: url("https://img.freepik.com/free-vector/gradient-abstract-wireframe-background_23-2149020364.jpg?w=1480&t=st=1698328214~exp=1698328814~hmac=a859c9787f90bfbadac3c1ceb599dc1dec4524315de46fd7aa4c1c2da24646c6");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   color: #00bceb; /* Bright blue text */
 
   height: 100vh;
