@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #000, #333); /* Gradient background */
+  background: linear-gradient(135deg, #005072, #333); /* Gradient background */
   color: #00bceb; /* Bright blue text */
 
   height: 100vh;

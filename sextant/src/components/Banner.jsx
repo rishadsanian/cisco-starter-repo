@@ -8,10 +8,10 @@ import './Banner.css';
 function Banner() {
   return (
     <div>
-      <div>
+      <div className="banner">
       {/* <img src={ciscoLogo} alt="Cisco logo" /> */}
         
-        <h1 className="banner">SEXTANT</h1>
+        <h1 >SEXTANT</h1>
       </div>
     </div>
   );
