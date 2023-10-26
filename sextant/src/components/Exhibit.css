@@ -1,34 +1,31 @@
 .widget {
-  background-color: #333; 
-  background-color: #005072; 
-  background-color: #fff; 
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism background */
   width: 33%;
   border-radius: 10px;
   padding: 20px;
   margin: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Drop shadow for depth */
-  transition: transform 0.2s ease; /* Transition for hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+  backdrop-filter: blur(5px); /* Frosted glass effect */
 }
 
 .widget:hover {
-  transform: scale(1.05); /* Scale up on hover for an interactive effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add box shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
 }
 
 .widget h2 {
   font-size: 1.5em;
-  color: #005072; 
+  color: #00BCEB; /* Bright blue for heading text */
   text-align: left;
   margin-top: 0;
 }
 
-.widget h2:hover{
-  color: #8a051ba6;
-  }
-  
+.widget h2:hover {
+  color: #8a051ba6; /* Accent color on hover */
+}
+
 .widget p {
   font-size: 1em;
   color: #fff;
-  color: #333;
-  
 }
