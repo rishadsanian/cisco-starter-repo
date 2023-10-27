@@ -22,22 +22,31 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+// const {labels, displayLatency} = PacketLatency();
+
 const LatencyChart = () => {
   const [labels, setLabels] = useState([]);
-  const [displayLatency, setdisplayLatency] = useState([]);
-  // const [latencyStatus, setLatencyStatus] = useState("");
-  // const [currentTimestamp, setCurrentTimestamp] = useState("");
-
-  const { latency, currentTimestamp } = PacketLatency();
+  const [displayLatency, setDisplayLatency] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      //I want to set the state of the display latency array to the latency array from the imported latency and currentTimeStamp from packet latency
+      // const { currentTimestamp, latency } = PacketLatency();
+      // Generate mock data for demonstration
+      const currentTimestamp = new Date().toLocaleTimeString();
+      const latency = Math.floor(Math.random() * 100);
+
+      //real data
+      // console.log(currentTimestamp, latency);
+
+      // Update state with the mock data
       setLabels((labels) => [...labels, currentTimestamp]);
-      setdisplayLatency((displayLatency) => [...displayLatency, latency]);
+      setDisplayLatency((displayLatency) => [...displayLatency, latency]);
     }, 1000);
+
     return () => clearInterval(interval);
   }, []);
+
 
   const options = {
     responsive: true,
@@ -47,7 +56,7 @@ const LatencyChart = () => {
       },
       title: {
         display: true,
-        text: "Latency Chart",
+        text: "Latency Chart (Mock Data)",
         color: "#00BCEB",
         font: "Courier New",
       },
@@ -68,7 +77,7 @@ const LatencyChart = () => {
   };
 
   return (
-    <div className="chart" style={{ width: "30%" }}>
+    <div className="chart" style={{ width: "70%" }}>
       <Line options={options} data={data} />
     </div>
   );

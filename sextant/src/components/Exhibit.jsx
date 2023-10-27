@@ -15,7 +15,7 @@ function Exhibit({ widget }) {
       ) : (
         <div className="value">Unavailable</div>
       )}
-      <div>{widget.data2}</div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>{widget.data2}</div>
     </div>
   );
 }

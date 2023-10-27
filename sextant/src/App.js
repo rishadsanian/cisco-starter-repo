@@ -9,7 +9,7 @@ import PacketLatency from "./api/packetLatency";
 
 function App() {
   const { ipv4, ipv4status, ipv6, ipv6status } = GetIP();
-  const { latency, latencyStatus } = PacketLatency();
+  const { latency, latencyStatus, labels, displayLatency } = PacketLatency();
 
   const widget1 = {
     heading: "Public IPV4 Address ",
@@ -29,8 +29,11 @@ function App() {
     data2: <LatencyChart />,
     width: "75vh",
     status: latencyStatus,
+    // labels: labels,
+    // displayLatency: displayLatency,
   };
-  const widget4 = { heading: "Latency", data: <LatencyChart /> };
+  // const widget4 = { heading: "Latency", data: <LatencyChart /> };
+
 
   return (
     <div className="App">
@@ -39,7 +42,6 @@ function App() {
         <Exhibit widget={widget1} />
         <Exhibit widget={widget2} />
         <Exhibit widget={widget3} />
-        <LatencyChart />
       </div>
     </div>
   );
