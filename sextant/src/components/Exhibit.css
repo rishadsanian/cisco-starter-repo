@@ -30,7 +30,7 @@ header {
   padding-bottom: 5px;
 }
 
-.widget p {
+.widget .value {
   font-size: 1.5em;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
@@ -40,7 +40,7 @@ header {
   overflow-wrap: break-word; /* Wrap long words to avoid overflow */
 }
 
-.widget p:hover {
+.widget .value:hover {
   background: rgba(0, 0, 0, 0.7);
 }
 

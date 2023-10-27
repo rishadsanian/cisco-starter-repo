@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Banner from "./components/Banner";
 import Exhibit from "./components/Exhibit";
-// import LatencyChart from "./components/LatencyChart";
+import LatencyChart from "./components/LatencyChart";
 
 import GetIP from "./api/getIp";
 import PacketLatency from "./api/packetLatency";
@@ -26,10 +26,11 @@ function App() {
   const widget3 = {
     heading: "Latency (ms)",
     data: latency,
-    width: "20%",
+    data2: <LatencyChart />,
+    width: "75vh",
     status: latencyStatus,
   };
-  const widget4 = { heading: "Widget4", data: "Data4" };
+  const widget4 = { heading: "Latency", data: <LatencyChart /> };
 
   return (
     <div className="App">
@@ -38,8 +39,7 @@ function App() {
         <Exhibit widget={widget1} />
         <Exhibit widget={widget2} />
         <Exhibit widget={widget3} />
-        {/* <LatencyChart /> */}
-        {/* <Exhibit widget={widget4} /> */}
+        <LatencyChart />
       </div>
     </div>
   );
