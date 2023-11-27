@@ -56,3 +56,4 @@ function PacketLatency() {
 }
 
 export default PacketLatency;
+
