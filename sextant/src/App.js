@@ -26,7 +26,7 @@ function App() {
   const widget3 = {
     heading: "Latency (ms)",
     data: latency,
-    data2: <LatencyChart />,
+    data2: <LatencyChart labels={labels} displayLatency={displayLatency} />,
     width: "75vh",
     status: latencyStatus,
     // labels: labels,

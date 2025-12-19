@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,9 +8,10 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale,
 } from "chart.js";
+import "chartjs-adapter-date-fns";
 import { Line } from "react-chartjs-2";
-import PacketLatency from "../api/packetLatency";
 import "./Exhibit.css";
 
 ChartJS.register(
@@ -20,65 +21,66 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeScale
 );
 
 // const {labels, displayLatency} = PacketLatency();
 
-const LatencyChart = () => {
-  const [labels, setLabels] = useState([]);
-  const [displayLatency, setDisplayLatency] = useState([]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // const { currentTimestamp, latency } = PacketLatency();
-      // Generate mock data for demonstration
-      const currentTimestamp = new Date().toLocaleTimeString();
-      const latency = Math.floor(Math.random() * 100);
-
-      //real data
-      // console.log(currentTimestamp, latency);
-
-      // Update state with the mock data
-      setLabels((labels) => [...labels, currentTimestamp]);
-      setDisplayLatency((displayLatency) => [...displayLatency, latency]);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+const LatencyChart = ({ labels, displayLatency }) => {
+  const chartRef = useRef();
 
   const options = {
     responsive: true,
+    scales: {
+      x: {
+        type: "time",
+        time: {
+          unit: "second",
+        },
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
     plugins: {
       legend: {
         position: "top",
       },
       title: {
         display: true,
-        text: "Latency Chart (Mock Data)",
+        text: "Latency Chart",
         color: "#00BCEB",
         font: "Courier New",
       },
     },
   };
 
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Latency",
-        data: displayLatency,
-        fill: false,
-        borderColor: "#00BCEB",
-        backgroundColor: "rgba(0, 188, 235, 0.5)",
-      },
-    ],
-  };
+  const data = useMemo(
+    () => ({
+      datasets: [
+        {
+          label: "Latency",
+          data: displayLatency.map((y, i) => ({ x: new Date(labels[i]), y })),
+          fill: false,
+          borderColor: "#00BCEB",
+          backgroundColor: "rgba(0, 188, 235, 0.5)",
+        },
+      ],
+    }),
+    [labels, displayLatency]
+  );
+
+  useEffect(() => {
+    console.log("Chart data updated:", data);
+    if (chartRef.current) {
+      chartRef.current.update();
+    }
+  }, [data]);
 
   return (
     <div className="chart" style={{ width: "70%" }}>
-      <Line options={options} data={data} />
+      <Line ref={chartRef} options={options} data={data} />
     </div>
   );
 };
