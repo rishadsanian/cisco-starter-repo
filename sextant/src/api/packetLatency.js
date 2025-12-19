@@ -23,12 +23,12 @@ function PacketLatency() {
 
     //incoming messages
     client.onmessage = (message) => {
-      console.log("Received message:", message.data);
+      // console.log("Received message:", message.data);
       const timestamp = parseInt(message.data);
       const currentTime = Date.now();
       setCurrentTimestamp(currentTime);
       const packetLatency = currentTime - timestamp;
-      console.log("Calculated latency:", packetLatency);
+      // console.log("Calculated latency:", packetLatency);
       latencyRef.current = packetLatency;
       setLatency(packetLatency);
       setLatencyStatus("green");
@@ -60,12 +60,12 @@ function PacketLatency() {
   // }, []);
 
   useEffect(() => {
-    console.log("Interval useEffect running");
+    // console.log("Interval useEffect running");
     const interval = setInterval(() => {
-      console.log("Interval tick, latency:", latencyRef.current);
+      // console.log("Interval tick, latency:", latencyRef.current);
       if (latencyRef.current !== null) {
         const timestamp = Date.now();
-        console.log("Adding chart point:", timestamp, latencyRef.current);
+        // console.log("Adding chart point:", timestamp, latencyRef.current);
         setLabels((prev) => [...prev, timestamp]);
         setDisplayLatency((prev) => [...prev, latencyRef.current]);
       }

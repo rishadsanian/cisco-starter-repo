@@ -72,7 +72,7 @@ const LatencyChart = ({ labels, displayLatency }) => {
   );
 
   useEffect(() => {
-    console.log("Chart data updated:", data);
+    // console.log("Chart data updated:", data);
     if (chartRef.current) {
       chartRef.current.update();
     }
